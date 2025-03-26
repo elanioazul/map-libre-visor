@@ -9,7 +9,8 @@ import Lara from '@primeng/themes/lara';
 import Nora from '@primeng/themes/nora';
 
 import { routes } from './app.routes';
-import { MyPreset } from '../styles';
+//import { MyPreset } from '../styles';
+import { MyPreset } from '../styles_my_custom_theme';
 
 export const appConfig: ApplicationConfig = {
   providers: [
