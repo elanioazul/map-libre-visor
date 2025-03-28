@@ -1,0 +1,23 @@
+.off-menu {
+  position: fixed;
+  max-width: 24rem;
+  width: 350px;
+  height: 350px;
+  transform: translateY(-74.5%);
+  background: transparent;
+  transition: transform 0.3s ease-out, background 0.3s ease-out;
+}
+
+.off-menu.off-menu-opened {
+  transform: translateY(0);
+  background: #19ca82;
+  transition: transform .3s ease-out background 0.3s ease-out;
+}
+
+.off-menu .button-toggle {
+  position: absolute;
+  top: 100%;
+  left: 165px;
+}
+
+
