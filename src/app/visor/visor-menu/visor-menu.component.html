@@ -1,4 +1,4 @@
 <div #offmenu id="off-menu" class="off-menu">
-  <!-- <button #toogleBtn id="toogleBtn" class="button-toggle" (click)="toggle()">+</button> -->
-  <p-button  class="button-toggle" (click)="toggle()">+</p-button>
+  <p-button [icon]="isMenuOpen ? 'pi pi-angle-up' : 'pi pi-angle-down'" icon="pi pi-angle-down" class="button-toggle"
+    (click)="toggle()"></p-button>
 </div>

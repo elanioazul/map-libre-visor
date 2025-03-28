@@ -11,7 +11,9 @@ import { ButtonModule } from 'primeng/button';
 export class VisorMenuComponent {
 
   @ViewChild("offmenu") offmenu!: ElementRef<HTMLElement>;
-  @ViewChild("toogleBtn") toogleEle!: ElementRef<HTMLElement>;
+  @ViewChild("toogleBtn") toogleBtn!: ElementRef<HTMLElement>;
+
+  isMenuOpen!: boolean;
 
   constructor() {}
 
@@ -19,6 +21,7 @@ export class VisorMenuComponent {
     if (this.offmenu && this.offmenu.nativeElement) {
       const element = this.offmenu.nativeElement;
       element.classList.toggle("off-menu-opened");
+      this.isMenuOpen = !this.isMenuOpen;
     }
   }
 

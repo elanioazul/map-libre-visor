@@ -10,9 +10,12 @@ import { ButtonModule } from 'primeng/button';
 })
 export class VisorHeaderComponent {
 
+  isDarkMode!: boolean;
+
   toggleMode(): void {
     const element = document.querySelector('html');
     element?.classList.toggle('my-app-dark');
+    this.isDarkMode = !this.isDarkMode;
   }
 
 }
