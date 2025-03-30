@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, computed, inject } from '@angular/core';
+import { ScreensizeService } from '../../core/services/screensize.service';
 @Component({
   selector: 'app-visor-footer',
   standalone: true,
@@ -8,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './visor-footer.component.scss'
 })
 export class VisorFooterComponent {
+  screenSizeService = inject(ScreensizeService);
+
+  sizeState = computed(() => this.screenSizeService.size())
+  constructor() {
+    console.log(this.sizeState());
+
+  }
 
 }
