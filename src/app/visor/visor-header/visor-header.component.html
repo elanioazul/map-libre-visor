@@ -1,3 +1,7 @@
 <div class="h-full p-4 flex align-items-center justify-content-end">
-    <p-button [icon]="isDarkMode ? 'pi pi-moon' : 'pi pi-sun'"  (onClick)="toggleMode()"></p-button>
+  @if (screenSizeService.size() == 'mobile') {
+    <p-button [label]="uiLayoutService.isMenuOpen() ? 'Close' : 'Menu'"  (onClick)="openMenu()"></p-button>
+  } @else if (screenSizeService.size() !== 'mobile') {
+    <p-button [icon]="uiLayoutService.isDarkMode() ? 'pi pi-moon' : 'pi pi-sun'"  (onClick)="toggleMode()"></p-button>
+  }
 </div>
