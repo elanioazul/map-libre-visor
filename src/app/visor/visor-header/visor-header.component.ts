@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
+import { ScreensizeService } from '../../core/services/screensize.service';
+import { UiLayoutService } from '../../core/services/ui-layout.service';
 
 @Component({
   selector: 'app-visor-header',
@@ -10,12 +12,19 @@ import { ButtonModule } from 'primeng/button';
 })
 export class VisorHeaderComponent {
 
-  isDarkMode!: boolean;
+  screenSizeService = inject(ScreensizeService);
+  uiLayoutService = inject(UiLayoutService);
 
   toggleMode(): void {
     const element = document.querySelector('html');
     element?.classList.toggle('my-app-dark');
-    this.isDarkMode = !this.isDarkMode;
+    this.uiLayoutService.toggleDarkMode();
+  }
+
+  openMenu(): void {
+    const elem = document.querySelector('#off-menu');
+    elem?.classList.toggle('off-menu-opened')
+    this.uiLayoutService.toggleMenu();
   }
 
 }

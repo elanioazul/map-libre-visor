@@ -1,4 +1,8 @@
 <div #offmenu id="off-menu" class="off-menu">
-  <p-button [icon]="isMenuOpen ? 'pi pi-angle-up' : 'pi pi-angle-down'" icon="pi pi-angle-down" class="button-toggle"
-    (click)="toggle()"></p-button>
+  @if (screenSizeService.size() == 'mobile') {
+
+  } @else if (screenSizeService.size() !== 'mobile') {
+    <p-button [icon]="this.uiLayoutService.isMenuOpen() ? 'pi pi-angle-up' : 'pi pi-angle-down'" icon="pi pi-angle-down" class="button-toggle"
+      (click)="toggle()"></p-button>
+  }
 </div>

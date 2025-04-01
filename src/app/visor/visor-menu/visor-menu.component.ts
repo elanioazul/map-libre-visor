@@ -1,5 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
+import { ScreensizeService } from '../../core/services/screensize.service';
+import { UiLayoutService } from '../../core/services/ui-layout.service';
 
 @Component({
   selector: 'app-visor-menu',
@@ -10,10 +12,11 @@ import { ButtonModule } from 'primeng/button';
 })
 export class VisorMenuComponent {
 
+  screenSizeService = inject(ScreensizeService);
+  uiLayoutService = inject(UiLayoutService);
+
   @ViewChild("offmenu") offmenu!: ElementRef<HTMLElement>;
   @ViewChild("toogleBtn") toogleBtn!: ElementRef<HTMLElement>;
-
-  isMenuOpen!: boolean;
 
   constructor() {}
 
@@ -21,7 +24,7 @@ export class VisorMenuComponent {
     if (this.offmenu && this.offmenu.nativeElement) {
       const element = this.offmenu.nativeElement;
       element.classList.toggle("off-menu-opened");
-      this.isMenuOpen = !this.isMenuOpen;
+      this.uiLayoutService.toggleMenu();
     }
   }
 
