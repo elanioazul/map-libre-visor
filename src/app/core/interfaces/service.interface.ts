@@ -7,8 +7,11 @@ export interface IReadService {
   name: string;
   alias: string;
   description: string;
-  displayAt: displayWhere;
-  opacity: number;
-  hasChindren: boolean;//no tiene ? entonces es nodo con capas : es nodo vacio y habrá que leer siguiente 
-  layers: IReadCapa[] | null;
+  layers?: IReadCapa[]; // Optional: present if this is a leaf service
+  categories?: { [key: string]: IReadService }; // Optional: nested categories
+}
+
+
+export interface IReadGeocatalog {
+  [category: string]: IReadService;
 }

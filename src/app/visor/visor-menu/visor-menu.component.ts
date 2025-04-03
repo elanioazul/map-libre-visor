@@ -2,15 +2,21 @@ import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { ScreensizeService } from '../../core/services/screensize.service';
 import { UiLayoutService } from '../../core/services/ui-layout.service';
+import { TreeModule } from 'primeng/tree';
+import { servicesGeocatalog } from '../../core/consts/config';
+import { transformGeocatalogToTreeNode } from '../utils/tree-node.utils';
+import {GeocatalogTreeNode } from '../../core/interfaces/geocatalog-tree.interface';
 
 @Component({
   selector: 'app-visor-menu',
   standalone: true,
-  imports: [ButtonModule],
+  imports: [ButtonModule, TreeModule],
   templateUrl: './visor-menu.component.html',
   styleUrl: './visor-menu.component.scss'
 })
 export class VisorMenuComponent {
+  treeNodes: GeocatalogTreeNode[] = transformGeocatalogToTreeNode(servicesGeocatalog);
+  selectedNodes: GeocatalogTreeNode[] = [];
 
   screenSizeService = inject(ScreensizeService);
   uiLayoutService = inject(UiLayoutService);

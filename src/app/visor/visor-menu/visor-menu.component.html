@@ -5,4 +5,5 @@
     <p-button [icon]="this.uiLayoutService.isMenuOpen() ? 'pi pi-angle-up' : 'pi pi-angle-down'" icon="pi pi-angle-down" class="button-toggle"
       (click)="toggle()"></p-button>
   }
+  <p-tree [value]="treeNodes" selectionMode="checkbox" [(selection)]="selectedNodes"></p-tree>
 </div>
