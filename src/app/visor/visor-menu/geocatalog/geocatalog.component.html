@@ -1,0 +1,11 @@
+<div>
+  <p-tree
+    [value]="treeNodes"
+    selectionMode="checkbox"
+    [(selection)]="selectedNodes"
+    (onNodeSelect)="onNodeSelection($event)"
+    (onNodeUnselect)="onNodeUnSelection($event)"
+  >
+  </p-tree>
+</div>
+
