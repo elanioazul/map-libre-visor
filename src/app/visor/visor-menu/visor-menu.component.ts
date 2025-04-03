@@ -2,7 +2,7 @@ import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { ScreensizeService } from '../../core/services/screensize.service';
 import { UiLayoutService } from '../../core/services/ui-layout.service';
-import { TreeModule } from 'primeng/tree';
+import { TreeModule, TreeNodeSelectEvent } from 'primeng/tree';
 import { servicesGeocatalog } from '../../core/consts/config';
 import { transformGeocatalogToTreeNode } from '../utils/tree-node.utils';
 import {GeocatalogTreeNode } from '../../core/interfaces/geocatalog-tree.interface';
@@ -25,6 +25,12 @@ export class VisorMenuComponent {
   @ViewChild("toogleBtn") toogleBtn!: ElementRef<HTMLElement>;
 
   constructor() {}
+
+  onNodeSelection(event: TreeNodeSelectEvent): void {
+    console.log(event);
+    //console.log(this.selectedNodes);
+
+  }
 
   toggle() {
     if (this.offmenu && this.offmenu.nativeElement) {
