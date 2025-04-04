@@ -1,1 +1,10 @@
-<p>toc works!</p>
+<div class="card flex justify-center">
+  <div class="flex flex-column">
+      <div *ngFor="let node of tocGeocatalogService.nodesInToc()" class="flex items-center">
+        <p-button icon="pi pi-times-circle" class="button-toggle"
+        (click)="tocGeocatalogService.remove$.next(node)"></p-button>
+        <p-checkbox [inputId]="node.data?.name" name="group" [value]="node" [(ngModel)]="selectedNodes" />
+        <label [for]="node.data?.name" class="ml-2">{{ node.data?.name }}</label>
+      </div>
+  </div>
+</div>
