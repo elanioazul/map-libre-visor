@@ -2,6 +2,8 @@ import { computed, Injectable, signal } from '@angular/core';
 import { GeocatalogTreeNode } from '../../core/interfaces/geocatalog-tree.interface';
 import { Subject, take } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { transformGeocatalogToTreeNode } from '../utils/tree-node.utils';
+import { servicesGeocatalog } from '../../core/consts/config';
 interface TocState {
   nodes: GeocatalogTreeNode[]
 }
@@ -9,6 +11,8 @@ interface TocState {
   providedIn: 'root'
 })
 export class TocgeocatalogService {
+
+  treeNodes: GeocatalogTreeNode[] = transformGeocatalogToTreeNode(servicesGeocatalog);
 
   //state
   private state = signal<TocState>({
