@@ -1,0 +1,11 @@
+<div>
+  <p-tree
+    [value]="tocGeocatalogService.treeNodes"
+    selectionMode="checkbox"
+    [(selection)]="selectedNodesLocal"
+    (onNodeSelect)="onNodeSelection($event)"
+    (onNodeUnselect)="onNodeUnSelection($event)"
+  >
+  </p-tree>
+</div>
+

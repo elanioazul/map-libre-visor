@@ -2,16 +2,17 @@ import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { ScreensizeService } from '../../core/services/screensize.service';
 import { UiLayoutService } from '../../core/services/ui-layout.service';
+import { GeocatalogComponent } from './geocatalog/geocatalog.component';
+import { TocComponent } from './toc/toc.component';
 
 @Component({
   selector: 'app-visor-menu',
   standalone: true,
-  imports: [ButtonModule],
+  imports: [ButtonModule, GeocatalogComponent, TocComponent],
   templateUrl: './visor-menu.component.html',
   styleUrl: './visor-menu.component.scss'
 })
 export class VisorMenuComponent {
-
   screenSizeService = inject(ScreensizeService);
   uiLayoutService = inject(UiLayoutService);
 
